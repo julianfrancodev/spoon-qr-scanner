@@ -13,7 +13,7 @@ class ScanModel {
   ScanModel({
     this.id,
     this.valor,
-    @required this.tipo,
+    this.tipo,
   }) {
     if (this.tipo.contains("http")) {
       this.tipo = 'http';
