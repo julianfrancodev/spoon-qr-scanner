@@ -2,11 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:qrscanner_v2/src/pages/home_page.dart';
 import 'package:qrscanner_v2/src/pages/map_page.dart';
+import 'package:qrscanner_v2/src/providers/scan_list_provider.dart';
 import 'package:qrscanner_v2/src/providers/ui_provider.dart';
 
 void main() {
   runApp(MultiProvider(
-    providers: [ChangeNotifierProvider(create: (_) => UiProvider())],
+    providers: [
+      ChangeNotifierProvider(create: (_) => UiProvider()),
+      ChangeNotifierProvider(create: (_) => ScanListProvider())
+    ],
     child: MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "QR Reader",
