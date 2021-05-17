@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
+import 'package:provider/provider.dart';
+import 'package:qrscanner_v2/src/providers/scan_list_provider.dart';
 
 class ScanButton extends StatelessWidget {
   @override
@@ -13,12 +15,17 @@ class ScanButton extends StatelessWidget {
         //     false,
         //     ScanMode.QR);
 
-        final barcodeScanner = "https://quirky-haibt-6b16cd.netlify.app/";
+        final barcodeScanner = "http://quirky-haibt-6b16cd.netlify.app/";
+
+        final scanListProvider = Provider.of<ScanListProvider>(context, listen: false);
+
+        scanListProvider.createScan(barcodeScanner);
+
+        scanListProvider.createScan('geo:12,234,1234,45');
 
 
 
-        print(barcodeScanner);
-      },
+        },
       child: Icon(Icons.filter_center_focus),
     );
   }
