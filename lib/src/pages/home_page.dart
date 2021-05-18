@@ -11,12 +11,19 @@ import 'package:qrscanner_v2/src/widgets/scan_button.dart';
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
+    final scanListProvider = Provider.of<ScanListProvider>(context, listen: false);
+
+
+
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
         title: Text("Historial"),
         actions: [
-          IconButton(icon: Icon(Icons.delete_forever), onPressed: () {})
+          IconButton(icon: Icon(Icons.delete_forever), onPressed: () {
+            scanListProvider.removeAll();
+          })
         ],
       ),
       body: _HomePageBody(),
